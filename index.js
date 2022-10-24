@@ -14,17 +14,17 @@ app.use(express.urlencoded({extended: false}))
 
 // AUTHENTICATION MIDDLEWARE
 app.use(async (req, res, next)=>{
-    if(req.cookies.userId) {
-        const decryptedId = cryptoJS.AES.decrypt(req.cookies.userId, process.env.SECRET)
+    if(req.cookies.customerId) {
+        const decryptedId = cryptoJS.AES.decrypt(req.cookies.customerId, process.env.SECRET)
         const decryptedIdString = decryptedId.toString(cryptoJS.enc.Utf8)
-        const user = await db.user.findByPk(decryptedIdString)
-        res.locals.user = user
-    } else res.locals.user = null
+        const customer = await db.customer.findByPk(decryptedIdString)
+        res.locals.customer = customer
+    } else res.locals.customer = null
     next()
 })
 
 // CONTROLLERS
-app.use('/users', require('./controllers/users'))
+app.use('/customers', require('./controllers/customers'))
 app.use('/about', require('./controllers/about'))
 app.use('/products', require('./controllers/products'))
 
@@ -34,6 +34,6 @@ app.get('/', (req, res)=>{
     res.render('home')
 })
 
-app.listen(8000, ()=>{
+app.listen(8001, ()=>{
     console.log('Project 2 Express Authentication')
 })
