@@ -1,8 +1,10 @@
 {
   "development": {
-    "database": "auth_boilerplate",
+    "database": "onlineShop",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "username": "postgres",
+    "password": "kawthar"
   },
   "test": {
     "database": "database_test",
