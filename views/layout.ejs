@@ -4,24 +4,81 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Express Auth</title>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="/">HOME</a></li>
-            <li><a href="/about">ABOUT</a></li>
-            <li><a href="/products">PRODUCTS</a></li>
-            <% if(customer){ %>
-                <li><a href="/customers/profile">Profile</a></li>
-                <li><a href="/customers/logout">Logout</a></li>
-            <% } else { %> 
-                <li><a href="/customers/new">Sign Up</a></li>
-                <li><a href="/customers/login">Login</a></li>
-            <% } %>
-        </ul>
-    </nav>
-    <h1>Express Auth Boilerplate for Project 2</h1>
+
+
+    <header>
+
+        <input type="checkbox" name="" id="toggler">
+        <label for="toggler" class="fas fa-bars"></label>
+    
+        <a href="#" class="logo">BAS KHAZAF<span>.</span></a>
+    
+        <nav class="navbar">
+            <a href="#home">HOME</a>
+            <a href="#about">ABOUT</a>
+            <a href="#products">PRODUCTS</a>
+            <a href="#review">REVIEW</a>
+            <a href="#contact">CONTACT</a>
+        </nav>
+    
+        <div class="icons">
+            <a href="/favorites" class="fas fa-heart"></a>
+            <a href="/cart" class="fas fa-shopping-cart"></a>
+            <a href="/profile" class="fas fa-user"></a>
+        </div>
+    
+    </header>
+
+
+    <section class="home" id="home">
+
+        <div class="content">
+            <h3>Handmade Ceramics</h3>
+            <span>Aesthetic Ceramics</span>
+            <p>Every piece we make is unique. We start with clay and end up with glazed masterpieces that are dinnerware safe. Get ready to sip coffee in art, it's an experience!   </p>
+            <a href="#products" class="btn">Shop Now</a>
+        </div>
+        
+    </section>
+
+
+
+    <section class="about" id="about">
+
+        <h1 class="heading"> <span> About </span> us </h1>
+    
+        <div class="row">
+    
+            <div class="video-container">
+                <video controls="true" src=<%="/img/potteryMaking.mp4"%> loop autoplay muted></video>
+                <h3>Made with Love</h3>
+            </div>
+    
+            <div class="content">
+                <h3>Why Choose Us?</h3>
+                <p>Bas Khazaf is not just a business, it's a passion. Every piece in our shop has been given the love to grow from a clump of clay to a beautiful delicate masterpiece.</p>
+                
+                       <p>Our cerammics go through a long beautiful journey before they are delivered to you. We start by extracting the clay from the ground in an area in Bahrain called Riffa. We then water and dry the clay through filters to get rid of stones and rocks. Pure clay is then shaped and structured and fired in high temperatures. Hand-painting and glazing comes next, and ofcourse firing the glazes. In the end, we wrap the ceramics and ship them to you with love. </p>
+                <a href="#" class="btn">learn more</a>
+            </div>
+    
+        </div>
+    
+    </section>
+
+
+
+
+
+
+
+    
     <%- body %> 
 </body>
 </html>

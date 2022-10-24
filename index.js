@@ -12,6 +12,10 @@ app.use(ejsLayouts)
 app.use(cookieParser())
 app.use(express.urlencoded({extended: false}))
 
+//link to CSS
+app.use(express.static('public'))
+app.use('/css', express.static(__dirname + '/css'))
+
 // AUTHENTICATION MIDDLEWARE
 app.use(async (req, res, next)=>{
     if(req.cookies.customerId) {
