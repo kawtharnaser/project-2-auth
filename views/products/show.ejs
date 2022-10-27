@@ -1,0 +1,40 @@
+<section class="products" id="products">
+
+    <h1 class="heading">Products</h1>
+
+    <div class="row">
+
+        <div class="box-container">
+<% products.forEach(function(pn) { %>
+
+
+    <div class="box">
+        <div class="image">
+            <img src="<%= pn.productImg%>" alt="">
+            <div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-share"></a>
+            </div>
+        </div>
+        <div class="content">
+            <h3><%= pn.productName%></h3>
+            <div class="price"> BD<%=pn.productPrice%> </div>
+        </div>
+    </div>
+
+
+  <% }) %>
+
+
+</div>
+
+</div>
+
+
+</section>
+
+
+
+
+

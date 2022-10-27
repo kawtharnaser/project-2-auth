@@ -19,7 +19,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   order.init({
-    orderId: DataTypes.INTEGER,
     customerId: DataTypes.INTEGER,
     customerName: DataTypes.STRING,
     complete: DataTypes.BOOLEAN
