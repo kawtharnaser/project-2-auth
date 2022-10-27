@@ -10,7 +10,14 @@ router.get('/new', (req, res)=>{
 })
 
 router.post('/', async (req, res)=>{
-    const [newCustomer, created] = await db.customer.findOrCreate({where:{email: req.body.email}})
+    const [newCustomer, created] = await db.customer.findOrCreate({where:{
+        email: req.body.email, 
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        city: req.body.city,
+        address: req.body.address,
+        phone: req.body.phone
+    }})
    
     if(!created){
         console.log('customer already exists')
