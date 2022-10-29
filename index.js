@@ -6,6 +6,7 @@ const db = require('./models')
 const cryptoJS = require('crypto-js')
 require('dotenv').config()
 
+
 // MIDDLEWARE
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
@@ -30,6 +31,7 @@ app.use(async (req, res, next)=>{
 // CONTROLLERS
 app.use('/customers', require('./controllers/customers'))
 app.use('/products', require('./controllers/products'))
+app.use('/cart', require('./controllers/cart'))
 
 
 

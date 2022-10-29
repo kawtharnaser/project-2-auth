@@ -2,6 +2,9 @@ let express = require('express')
 let db = require('../models')
 let router = express.Router()
 
+
+
+
 // // GET products - display products 
 // router.get('/', async (req, res) => {
 //   try {
@@ -27,8 +30,5 @@ db.product.findAll()
   res.status(400).render('main/404')
 })
 })
-
-
-
 
 module.exports = router

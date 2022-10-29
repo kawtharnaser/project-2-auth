@@ -12,9 +12,26 @@
         <div class="image">
             <img src="<%= pn.productImg%>" alt="">
             <div class="icons">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-shopping-cart"></a>
-                <a href="#" class="fas fa-share"></a>
+                <!-- <a href="#" class="fas fa-heart"></a> -->
+                <!-- <a href="#" class="fas fa-share"></a> -->
+
+
+                <!-- form to add to cart to the action path with a posting request -->
+                <form action="/cart/add-to-cart" method="POST">
+                    <!-- pass all the listed attiributes to the path provided -->
+                    <!-- store these as hidden inputs in the post request form -->
+                    <input type="hidden" name="productId" value="<%= pn.id%>">
+                    <input type="hidden" name="productName" value="<%= pn.productName%>">
+                    <input type="hidden" name="productPrice" value="<%= pn.productPrice%>">
+                    <input type="hidden" name="stock" value="<%= pn.stock%>">
+                    <input type="hidden" name="quantity" value="1">
+                    <input type="hidden" name="productImg" value="<%= pn.productImg%>">
+                    <!-- <label for="myCart" class="btn"><i class="fas fa-shopping-cart"></i></label> -->
+                    <input type="submit" value="add to cart" class="btn btn-primary">
+
+
+                </form>
+
             </div>
         </div>
         <div class="content">
@@ -33,6 +50,7 @@
 
 
 </section>
+
 
 
 
