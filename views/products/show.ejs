@@ -17,10 +17,10 @@
 
 
                 <!-- form to add to cart to the action path with a posting request -->
-                <form action="/cart/add-to-cart" method="POST">
+                <form action="/cart/add-to-cart/<%= pn.id %>" method="POST">
                     <!-- pass all the listed attiributes to the path provided -->
                     <!-- store these as hidden inputs in the post request form -->
-                    <input type="hidden" name="productId" value="<%= pn.id%>">
+                    <input type="hidden" name="id" value="<%= pn.id%>">
                     <input type="hidden" name="productName" value="<%= pn.productName%>">
                     <input type="hidden" name="productPrice" value="<%= pn.productPrice%>">
                     <input type="hidden" name="stock" value="<%= pn.stock%>">

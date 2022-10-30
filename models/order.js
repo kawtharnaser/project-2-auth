@@ -20,7 +20,6 @@ module.exports = (sequelize, DataTypes) => {
   }
   order.init({
     customerId: DataTypes.INTEGER,
-    customerName: DataTypes.STRING,
     complete: DataTypes.BOOLEAN
   }, {
     sequelize,
