@@ -4,6 +4,7 @@ const ejsLayouts = require('express-ejs-layouts')
 const cookieParser = require('cookie-parser')
 const db = require('./models')
 const cryptoJS = require('crypto-js')
+const session = require('express-session')
 require('dotenv').config()
 
 
@@ -12,6 +13,7 @@ app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 app.use(cookieParser())
 app.use(express.urlencoded({extended: false}))
+app.use(session({secret:"secret"}))
 
 //link to CSS
 app.use(express.static('public'))
@@ -28,7 +30,8 @@ app.use(async (req, res, next)=>{
     next()
 })
 
-// CONTROLLERS
+
+// CONTROLLERS  
 app.use('/customers', require('./controllers/customers'))
 app.use('/products', require('./controllers/products'))
 app.use('/cart', require('./controllers/cart'))

@@ -4,18 +4,18 @@
 
     <div class="row">
 
-        <div class="box-container">
+        <div class="box-container">  
+            <% cart.forEach(function(p){ %> 
+                <div class="box">
+                    <div class="image">
+                        <img src="<%=p.productImg%>" alt="">
+                    </div>
+                    <div class="content">
+                        <h3><%=p.productName%></h3>
+                        <div class="price"> BD<%=p.productPrice%> </div>
 
-
-    <div class="box">
-        <div class="image">
-            <img src="<%= customer.orders[0].products[0].productImg%>" alt="">
-        </div>
-        <div class="content">
-            <h3><%= customer.orders[0].products[0].productName%></h3>
-            <div class="price"> BD<%=customer.orders[0].products[0].productPrice%> </div>
-        </div>
-    </div>
+                </div>
+                <%})%>
 
 
 
