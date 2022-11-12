@@ -29,18 +29,18 @@ function productAdded(cart, id){
 }
 
 
-//this function calculates the total price of all products in cart
+//this function calculates the totalPrice of all products in cart
 function concatenatePrice(cart, req){
-    //we start with total =0
-    total = 0
+    //we start with totalPrice =0
+    totalPrice = 0
     //loop over all products in the cart session
     for(let i=0; i<cart.length; i++){
-        //add each product price one by one to the total price, multiplied by its quantity
-        total = total + (cart[i].productPrice*cart[i].quantity)
+        //add each product price one by one to the totalPrice, multiplied by its quantity
+        totalPrice = totalPrice + (cart[i].productPrice*cart[i].quantity)
     }
-    //create a total key in our session that store the total as its value and then we return it
-    req.session.total = total
-    return total
+    //create a totalPrice key in our session that store the totalPrice as its value and then we return it
+    req.session.totalPrice = totalPrice
+    return totalPrice
 }
 
 
@@ -87,7 +87,7 @@ router.post('/add-to-cart/:id', (req, res) => {
         // but if its not in the cart then we have to push that product to the cart session array
         if(!productAdded(cart, id)){
             cart.push(product)
-            //add price of the added product to the total price
+            //add price of the added product to the totalPrice
             concatenatePrice(cart, req)
         }
     }
@@ -98,23 +98,23 @@ router.post('/add-to-cart/:id', (req, res) => {
     else{
     req.session.cart = [product]
     const cart = req.session.cart
-    //add price of the added product to the total price
+    //add price of the added product to the totalPrice
     concatenatePrice(cart, req)
     }
     
 
-    //CHANGE THIS
+    //CHANGE THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     res.redirect('/products')
 })
 
 
-//display the cart and the total in our cart page
+//display the cart and the totalPrice in our cart page
 router.get('/', (req, res)=>{
     let cart = req.session.cart
-    let total = req.session.total
+    let totalPrice = req.session.totalPrice
 
-    //pass the cart and total to the ejs page 
-    res.render('cart/show', {cart:cart,total:total})
+    //pass the cart and totalPrice to the ejs page 
+    res.render('cart/show', {cart:cart,totalPrice:totalPrice})
 })
 
 
